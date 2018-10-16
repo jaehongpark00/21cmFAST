@@ -630,14 +630,13 @@ double tauX(double nu, double x_e, double zp, double zpp, double HI_filling_fact
        if (HI_filling_factor_zp > FRACT_FLOAT_ERR){
          // New in v2
          if (HALO_MASS_DEPENDENT_IONIZING_EFFICIENCY) {
-		   Nion_ST_z(zp,&(Splined_ans));
-		   fcoll = Splined_ans;
+		   p.ion_eff = ION_EFF_FACTOR;
          }
          else {
 	       fcoll = FgtrM(zp, M_MIN);
+	       p.ion_eff = (1.0 - HI_filling_factor_zp) / fcoll * (1.0 - x_e_ave);
+	       PS_ION_EFF = p.ion_eff;
 	     }
-	     p.ion_eff = (1.0 - HI_filling_factor_zp) / fcoll * (1.0 - x_e_ave);
-	     PS_ION_EFF = p.ion_eff;
        }
        else
 	   p.ion_eff = PS_ION_EFF; // uses the previous one in post reionization regime
