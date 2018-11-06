@@ -300,19 +300,11 @@ int main(int argc, char ** argv){
   else { 
     mean_f_coll_st = FgtrM_st(REDSHIFT, M_MIN);
   }
-<<<<<<< HEAD
-    /**********  CHECK IF WE ARE IN THE DARK AGES ******************************/
-    global_xH = 0;
-    // lets check if we are going to bother with computing the inhmogeneous field at all...
-    if ((mean_f_coll_st*ION_EFF_FACTOR < HII_ROUND_ERR)){ // way too small to ionize anything...//New in v2
-=======
-
 
   /**********  CHECK IF WE ARE IN THE DARK AGES ******************************/
   // lets check if we are going to bother with computing the inhmogeneous field at all...
   global_xH = 0;
   if ((mean_f_coll_st*ION_EFF_FACTOR < HII_ROUND_ERR)){ // way too small to ionize anything...//New in v2
->>>>>>> upstream/master
       fprintf(stderr, "The ST mean collapse fraction is %e, which is much smaller than the effective critical collapse fraction of %e\n \
                        I will just declare everything to be neutral\n", mean_f_coll_st, 1./ION_EFF_FACTOR);
       fprintf(LOG, "The ST mean collapse fraction is %e, which is much smaller than the effective critical collapse fraction of %e\n \
