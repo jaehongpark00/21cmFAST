@@ -643,6 +643,7 @@ int main(int argc, char ** argv){
             }
           }
           //fprintf(stderr, "\n");
+    	  *((float *)box + R_FFT_INDEX((unsigned long long)(i),(unsigned long long)(j),(unsigned long long)(k)) ) /= TOT_NUM_PIXELS;
         }
       }
     }
